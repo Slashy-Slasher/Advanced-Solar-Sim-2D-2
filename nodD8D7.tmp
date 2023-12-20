@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh8w7xfsqwxmd"]
+
+[ext_resource type="Script" path="res://node_2d.gd" id="1_itg43"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_itg43")
+
+[node name="Planet" type="Polygon2D" parent="."]
+position = Vector2(829, 318)
+scale = Vector2(0.87931, 0.757576)
+polygon = PackedVector2Array(-29, 9, -17, 24, 1, 33, 20, 28, 27, 15, 29, -12, 17, -27, -4, -33, -19, -18)
+metadata/Mass = 100.0
+metadata/momentum = Vector2(0.055, -1.49)
+metadata/acc = Vector2(0, 0)
+
+[node name="Sun" type="Polygon2D" parent="."]
+position = Vector2(528, 321)
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(-29, 9, -17, 24, 1, 33, 20, 28, 27, 15, 29, -12, 17, -27, -4, -33, -19, -18)
+metadata/Mass = 1000.0

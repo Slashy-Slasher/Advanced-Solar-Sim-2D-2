@@ -1,0 +1,13 @@
+Area2D
+CollisionPolygon2D
+TextEdit
+Line2D
+Node
+DirectionalLight2D
+PointLight2D
+LightOccluder2D
+CollisionShape2D
+GPUParticles2D
+Camera2D
+Polygon2D
+Node2D

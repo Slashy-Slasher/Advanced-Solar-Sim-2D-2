@@ -1,0 +1,159 @@
+[gd_scene load_steps=6 format=3 uid="uid://bh8w7xfsqwxmd"]
+
+[ext_resource type="Script" path="res://node_2d.gd" id="1_itg43"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_abt5r"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_v1ggw"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7ifq0"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6nqqo"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 21.05
+initial_velocity_max = 52.63
+gravity = Vector3(0, 98, 0)
+color = Color(1, 0, 0.396078, 1)
+hue_variation_min = 0.02
+hue_variation_max = 0.19
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_itg43")
+metadata/Momentum = Vector2(0, 0)
+
+[node name="Sun" type="Polygon2D" parent="."]
+position = Vector2(0, 10)
+scale = Vector2(68.4968, 47.9221)
+color = Color(1, 1, 0, 1)
+antialiased = true
+polygon = PackedVector2Array(-25.4454, 13.5593, -17, 24, 1, 33, 20, 28, 27, 15, 29, -12, 17, -27, -4, -33, -20.2017, -19.0551)
+metadata/Mass = 150000.0
+metadata/Momentum = Vector2(0, 0)
+metadata/gravity = false
+
+[node name="Area2D" type="Area2D" parent="Sun"]
+position = Vector2(0, -0.208672)
+scale = Vector2(0.0145992, 0.0208672)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sun/Area2D"]
+visible = false
+position = Vector2(2503.28, 40.8421)
+scale = Vector2(149.689, 47.2072)
+polygon = PackedVector2Array(-18.5069, -33.9745, -8.93374, -27.9797, -3.34216, -13.215, -4.391, 14.6197, -7.49743, 27.7321, -16.3491, 33.0068, -24.6196, 23.8768, -28.5744, 12.9039, -26.0559, -20.5867)
+
+[node name="Planet" type="Polygon2D" parent="."]
+position = Vector2(12317, 10)
+scale = Vector2(2.63793, 2.63793)
+color = Color(0.862745, 0, 0.113725, 1)
+texture = SubResource("CanvasTexture_abt5r")
+polygon = PackedVector2Array(-29, 9, -17, 24, 1, 33, 20, 28, 27, 15, 29, -12, 17, -27, -4, -33, -19, -18)
+metadata/momentum = Vector2(0, 80)
+metadata/Mass = 10000.0
+metadata/gravity = true
+
+[node name="Planet2" type="Polygon2D" parent="."]
+position = Vector2(80000, 0)
+scale = Vector2(16.7034, 16.7034)
+color = Color(0.258824, 1, 0.933333, 1)
+texture = SubResource("CanvasTexture_abt5r")
+polygon = PackedVector2Array(-29, 9, -17, 24, 1, 33, 20, 28, 27, 15, 29, -12, 17, -27, -4, -33, -19, -18)
+metadata/momentum = Vector2(0, 50)
+metadata/Mass = 10000.0
+metadata/gravity = true
+
+[node name="Planet3" type="Polygon2D" parent="."]
+position = Vector2(154341, -76.9999)
+scale = Vector2(31.1518, 31.1518)
+color = Color(0.305882, 0.419608, 0.188235, 1)
+texture = SubResource("CanvasTexture_abt5r")
+polygon = PackedVector2Array(-29, 9, -17, 24, 1, 33, 20, 28, 27, 15, 29, -12, 17, -27, -4, -33, -19, -18)
+metadata/momentum = Vector2(0, 45)
+metadata/Mass = 14000.0
+metadata/gravity = true
+
+[node name="Ship" type="Polygon2D" parent="."]
+position = Vector2(2250, 10)
+scale = Vector2(1.3, 1.3)
+offset = Vector2(0, 7)
+texture = SubResource("CanvasTexture_v1ggw")
+polygon = PackedVector2Array(-5, 1, -5, -4, 0, -9, 5, -4, 5, 1, 1, -3, -1, -3)
+metadata/momentum = Vector2(0, 50)
+metadata/acc = Vector2(0, 0)
+metadata/Mass = 4.0
+metadata/gravity = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Ship"]
+material = SubResource("CanvasItemMaterial_7ifq0")
+position = Vector2(-4.61548, 7.69221)
+amount = 150
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_6nqqo")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="Ship"]
+material = SubResource("CanvasItemMaterial_7ifq0")
+position = Vector2(4.61548, 7.69221)
+amount = 150
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_6nqqo")
+
+[node name="xThrust Vector" type="Line2D" parent="Ship"]
+width = 1.0
+default_color = Color(0.356863, 0.65098, 0.929412, 1)
+
+[node name="yThrust Vector" type="Line2D" parent="Ship"]
+position = Vector2(19423.5, 713.853)
+points = PackedVector2Array(2772.31, 560.769)
+width = 2.0
+default_color = Color(0.741176, 0.556863, 0.364706, 1)
+
+[node name="Area2D" type="Area2D" parent="Ship"]
+position = Vector2(-11453.1, -7.69231)
+scale = Vector2(0.769231, 0.769231)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ship/Area2D"]
+position = Vector2(14936.5, 10.8367)
+scale = Vector2(2.84095, 1.28061)
+polygon = PackedVector2Array(-16.7236, -2.99597, -14.2598, 2.47018, -14.6118, 7.15545, -16.3716, 3.25106, -17.0757, 3.25106, -18.8354, 7.15545, -19.1875, 2.47018)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(5187, 942)
+ignore_rotation = false
+zoom = Vector2(0.5, 0.5)
+metadata/gravity = false
+
+[node name="TextEdit" type="TextEdit" parent="Camera2D"]
+offset_left = -569.0
+offset_top = -317.0
+offset_right = -98.0
+offset_bottom = -282.0
+text = "Yes
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextEdit2" type="TextEdit" parent="Camera2D"]
+offset_left = -569.0
+offset_top = -282.0
+offset_right = -99.0
+offset_bottom = -250.0
+text = "Yes
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextEdit3" type="TextEdit" parent="Camera2D"]
+offset_left = -569.0
+offset_top = -250.0
+offset_right = -99.0
+offset_bottom = -221.0
+
+[node name="Planet Tracker" type="Line2D" parent="."]
+width = 20.0
+antialiased = true
+
+[node name="Planet Tracker2" type="Line2D" parent="."]
+width = 20.0
+antialiased = true
+
+[node name="Planet Tracker3" type="Line2D" parent="."]
+width = 20.0
+antialiased = true

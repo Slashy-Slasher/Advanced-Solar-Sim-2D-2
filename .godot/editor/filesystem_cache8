@@ -1,0 +1,9 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1703052181
+icon.svg::CompressedTexture2D::951848215563180591::1699829125::1699829132::1::::<><>::
+node_2d.gd::GDScript::-1::1701312485::0::1::::<>Node2D<>::
+node_2d.gdshader::Shader::-1::1703051746::0::1::::<><>::
+node_2d.tscn::PackedScene::2947261190890305319::1701312492::0::1::::<><>::res://node_2d.gd
+planetGen.gd::GDScript::-1::1701312265::0::1::::<>Node<>::
+Polygon2D.gd::GDScript::-1::1699829965::0::1::::<>Polygon2D<>::
+Ship.gd::GDScript::-1::1699846695::0::1::::<>Polygon2D<>::
